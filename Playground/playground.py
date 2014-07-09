@@ -11,7 +11,3 @@ class Playground:
         print "Playground's open!"
         for c in self.cells:
             print "%d %d %d" % ( c.x, c.y, c.z )
-
-if __name__ == "__main__":
-    p = Playground(10)
-    p.play()
