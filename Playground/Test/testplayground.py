@@ -3,7 +3,7 @@ __version__ = "0.0.1"
 __date__ = "$Date: 2014/07/09 $"
 
 import unittest
-from playground import Playground
+from Playground.playground import Playground
 
 class PlaygroundTestCase(unittest.TestCase):
     def setUp(self):

@@ -5,11 +5,16 @@ __date__ = "$Date: 2014/07/09 $"
 import random
 
 class Cell:
-    """A generic (abstract?) Cell class"""
-    def __init__(self, type, lims=[[0,0], [0,0], [0,0]]):
-        self.x = self.init_pos(type, lims[0])
-        self.y = self.init_pos(type, lims[1])
-        self.z = self.init_pos(type, lims[2])
+    """
+    A generic (abstract?) Cell class
+    A Cell should be initialized with a location, at least.
+    Subclasses of Cell should implement the play() function,
+    which does an action for a single step.
+    """
+    def __init__(self, type, loc=[0,0,0], xlim=[0,0], ylim=[0,0], zlim=[0,0]):
+        self.x = self.init_pos(type, xlim)
+        self.y = self.init_pos(type, ylim)
+        self.z = self.init_pos(type, zlim)
 
     def init_pos(self, type, lim):
         if type == "random":
