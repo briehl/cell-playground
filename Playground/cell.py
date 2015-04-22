@@ -11,10 +11,22 @@ class Cell:
     Subclasses of Cell should implement the play() function,
     which does an action for a single step.
     """
-    def __init__(self, type, loc=[0,0,0], xlim=[0,0], ylim=[0,0], zlim=[0,0]):
-        self.x = self.init_pos(type, xlim)
-        self.y = self.init_pos(type, ylim)
-        self.z = self.init_pos(type, zlim)
+    def __init__(self, type=None, loc=[0,0,0], xlim=[0,0], ylim=[0,0], zlim=[0,0]):
+        (self.x, self.y, self.z) = [0, 0, 0]
+        if len(loc) < 1:
+            raise ValueError("Location must have at least one value")
+        if len(loc) > 3:
+            raise ValueError("Location can have up to 3 dimensions")
+        self.x = loc[0]
+        if len(loc) > 1:
+            self.y = loc[1]
+            if len(loc) == 3:
+                self.z = loc[2]
+
+        if type is not None:
+            self.x = self.init_pos(type, xlim)
+            self.y = self.init_pos(type, ylim)
+            self.z = self.init_pos(type, zlim)
 
     def init_pos(self, type, lim):
         if type == "random":
@@ -24,4 +36,4 @@ class Cell:
         elif type == "max":
             return max(lim)
         else:
-            return 0
+            raise ValueError("Unknown cell type '{}'".format(type))

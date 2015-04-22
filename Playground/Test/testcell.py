@@ -19,5 +19,7 @@ class CellTestCase(unittest.TestCase):
         self.assertEqual(c.z, 0)
 
     def test_cell_3d(self):
-        c = Cell(1, 1, 1)
+        c = Cell(loc=[1, 1, 1])
         self.assertEqual(c.x, 1)
+        self.assertEqual(c.y, 1)
+        self.assertEqual(c.z, 1)
