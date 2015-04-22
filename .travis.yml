@@ -6,4 +6,7 @@ python:
 branches:
   only:
   - master
-script: nosetests
+before-script:
+  - pip install python-coveralls
+script: nosetests --with-xcoverage -–xcoverage-file=.coverage
+after_success: coveralls
