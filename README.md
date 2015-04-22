@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/briehl/cell-playground.svg?branch=master)](https://travis-ci.org/briehl/cell-playground)
+
 Cell Playground
 ===============
 A place for cells to play and grow and evolve. Fun!
