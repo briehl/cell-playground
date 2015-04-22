@@ -6,4 +6,4 @@ python:
 branches:
   only:
   - master
-script: python -m nose
+script: nosetests
