@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/briehl/cell-playground.svg?branch=master)](https://travis-ci.org/briehl/cell-playground)
+[![Build Status](https://travis-ci.org/briehl/cell-playground.svg?branch=master)](https://travis-ci.org/briehl/cell-playground) [![Coverage Status](https://coveralls.io/repos/briehl/cell-playground/badge.svg)](https://coveralls.io/r/briehl/cell-playground)
 
 Cell Playground
 ===============
