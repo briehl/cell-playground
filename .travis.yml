@@ -9,5 +9,5 @@ branches:
 install:
   - pip install -r requirements.txt
   - pip install coveralls
-script: nosetests --with-xcoverage --cover-package=Playground --xcoverage-file=.coverage
+script: nosetests --with-coverage --cover-package=Playground
 after_success: coveralls
