@@ -4,7 +4,7 @@ __date__ = "$Date: 2014/07/09 $"
 
 import random
 
-class Cell:
+class Cell(object):
     """
     A generic (abstract?) Cell class
     A Cell should be initialized with a location, at least.
@@ -37,3 +37,7 @@ class Cell:
             return max(lim)
         else:
             raise ValueError("Unknown cell type '{}'".format(type))
+
+    def play(self):
+        # implement in subclass!
+        pass
