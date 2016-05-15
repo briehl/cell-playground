@@ -26,15 +26,18 @@ class ConwayCell(Cell):
         num_live_neighbors = 0
         neighbors = playground.neighborhood(self.x, self.y)
         for i in range(len(neighbors)):
-            if neighbors[i].state == State.ALIVE:
+            if neighbors[i].state is State.ALIVE:
                 num_live_neighbors += 1
-        if self.state == State.DEAD and num_live_neighbors == 3:
-            return State.ALIVE
+        new_state = State.DEAD
+        if self.state is State.DEAD:
+            if num_live_neighbors == 3:
+                new_state = State.ALIVE
         else:
             if num_live_neighbors < 2 or num_live_neighbors > 3:
-                return State.DEAD
+                new_state = State.DEAD
             else:
-                return State.ALIVE
+                new_state = State.ALIVE
+        return new_state
 
     def apply_state(self, state):
         self.state = state

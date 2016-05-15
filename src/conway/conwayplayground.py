@@ -39,28 +39,45 @@ class ConwayPlayground(Playground):
                     self.cells[x][y].apply_state(State.ALIVE)
                     flag = True
 
+    def init_fun_stuff(self):
+        if self.w < 6 or self.h < 6:
+            return
+        self.cells[2][2].apply_state(State.ALIVE)
+        self.cells[2][3].apply_state(State.ALIVE)
+        self.cells[2][4].apply_state(State.ALIVE)
+        self.cells[3][1].apply_state(State.ALIVE)
+        self.cells[3][2].apply_state(State.ALIVE)
+        self.cells[3][3].apply_state(State.ALIVE)
+
     def play(self):
         """
         1. Iterate over all cells, get their updated state and buffer it.
         2. Apply all new states at once.
         3. Print it out.
         """
-        buf = list(self.cells)
+        buf_states = list()
+        for i in range(self.w):
+            buf_row = list()
+            for j in range(self.h):
+                buf_row.append(self.cells[i][j].play(self))
+            buf_states.append(buf_row)
         for i in range(self.w):
             for j in range(self.h):
-                buf[i][j].apply_state(buf[i][j].play(self))
-        self.cells = list(buf)
+                self.cells[i][j].apply_state(buf_states[i][j])
 
     def neighborhood(self, row, col):
         """
         Let's make it toroidal, eh?
+        Actual spot = (row, col), ignore that one
         """
         neighbors = list()
         horiz_range = self._neighbor_range(col, self.w-1)
         vert_range = self._neighbor_range(row, self.h-1)
         for i in vert_range:
             for j in horiz_range:
-                if i is not row and j is not col:
+                if i is row and j is col:
+                    continue
+                else:
                     neighbors.append(self.cells[i][j])
         return neighbors
 
@@ -73,9 +90,11 @@ class ConwayPlayground(Playground):
         return r
 
     def __str__(self):
-        reprstr = "ConwayPlayground\n"
+        reprstr = "+" + "".join(["-"] * self.h) + "+\n"
         for i in range(self.w):
+            reprstr += "|"
             for j in range(self.h):
                 reprstr += str(self.cells[i][j])
-            reprstr += "\n"
+            reprstr += "|\n"
+        reprstr += "+" + "".join(["-"] * self.h) + "+\n"
         return reprstr
