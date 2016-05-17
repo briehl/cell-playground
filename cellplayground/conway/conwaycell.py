@@ -3,7 +3,7 @@ from __future__ import print_function
 Conway's Game of Life based Cell.
 """
 from aenum import Enum
-from playground.cell import Cell
+from cellplayground.playground.cell import Cell
 
 State = Enum('State', 'DEAD ALIVE')
 

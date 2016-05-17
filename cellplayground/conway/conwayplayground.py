@@ -5,7 +5,7 @@ Simplest Cell Automaton rule keeper. We'll do more like
 real biology later.
 """
 
-from playground.playground import Playground
+from cellplayground.playground.playground import Playground
 from .conwaycell import (
     ConwayCell,
     State
