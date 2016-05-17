@@ -12,3 +12,9 @@ class PlaygroundTestCase(unittest.TestCase):
 
     def test_has_right_number_of_cells(self):
         self.assertEqual(len(self.p.cells), self.num_cells)
+
+    def test_play(self):
+        self.p.play()
+
+    def test_neighborhood(self):
+        self.p.neighborhood(None)

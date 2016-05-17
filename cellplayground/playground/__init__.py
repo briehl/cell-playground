@@ -6,9 +6,9 @@ from playground import Playground
 from cell import Cell
 import sys
 
-def init_playground():
+def init_playground(num_cells):
     try:
-        p = Playground(int(sys.argv[1]))
+        p = Playground(num_cells)
         p.play()
     except ValueError:
         print "Gotta pass a number!"
