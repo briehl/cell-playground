@@ -7,8 +7,7 @@ from cell import Cell
 import sys
 
 def init_playground(num_cells):
-    try:
-        p = Playground(num_cells)
-        p.play()
-    except ValueError:
-        print "Gotta pass a number!"
+    if num_cells == 0:
+        raise ValueError("Gotta pass at least one cell!")
+    p = Playground(num_cells)
+    p.play()

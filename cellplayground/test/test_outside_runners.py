@@ -12,3 +12,7 @@ class OutsideRunners(unittest.TestCase):
 
     def test_base_runner(self):
         base_runner(5)
+
+    def test_base_runner_bad(self):
+        with self.assertRaises(ValueError):
+            base_runner(0)
