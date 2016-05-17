@@ -29,7 +29,14 @@ class ConwayPlayground(Playground):
     def init_cells(self, num_cells):
         """
         Breathe life into num_cells random Cells.
+        Just fill them all if num_cells > total available.
         """
+        if num_cells >= self.w * self.h:
+            for x in range(self.w):
+                for y in range(self.h):
+                    self.cells[x][y].apply_state(State.ALIVE)
+            return
+
         for i in range(num_cells):
             flag = False
             while flag is False:
@@ -41,7 +48,7 @@ class ConwayPlayground(Playground):
 
     def init_fun_stuff(self):
         if self.w < 6 or self.h < 6:
-            return
+            raise(ValueError("Gotta be at least 6x6!"))
         self.cells[2][2].apply_state(State.ALIVE)
         self.cells[2][3].apply_state(State.ALIVE)
         self.cells[2][4].apply_state(State.ALIVE)

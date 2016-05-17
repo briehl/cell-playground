@@ -23,6 +23,8 @@ class ConwayCell(Cell):
             empty cells get populated if == 3 neighbors
                 (but that's handled by the ConwayPlayground)
         """
+        if playground is None:
+            raise ValueError("No playground for this cell!")
         num_live_neighbors = 0
         neighbors = playground.neighborhood(self.x, self.y)
         for i in range(len(neighbors)):
@@ -40,6 +42,8 @@ class ConwayCell(Cell):
         return new_state
 
     def apply_state(self, state):
+        if not isinstance(state, State):
+            raise ValueError("Tried to set a cell as an invalid state: {}".format(state))
         self.state = state
 
     def __str__(self):
