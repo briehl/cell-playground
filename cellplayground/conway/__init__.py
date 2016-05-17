@@ -1,5 +1,5 @@
-from conwayplayground import ConwayPlayground
-from conwaycell import ConwayCell
+from .playground import ConwayPlayground
+from .cell import ConwayCell
 
 def run_playground(width, height, num_starting_cells, num_steps):
     playground = ConwayPlayground(width, height)

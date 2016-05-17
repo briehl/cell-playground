@@ -6,7 +6,7 @@ real biology later.
 """
 
 from cellplayground.playground.playground import Playground
-from .conwaycell import (
+from .cell import (
     ConwayCell,
     State
 )
